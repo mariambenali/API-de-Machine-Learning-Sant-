@@ -6,7 +6,7 @@ __pycache__/
 *.pyd
 
 # ML Artifacts
-models/model.joblib
+models/model_rf.joblib
 
 # Data
 data/*.csv
