@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ML Artifacts
+models/model.joblib
+
+# Data
+data/*.csv
+
+# Database file (SQLite)
+*.db
