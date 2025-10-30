@@ -1,9 +1,44 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+import cardio_api.models as models
+from cardio_api import databases
+import joblib
+from .schemas import  PatientCreate
 
 
-app= FastAPI()
+app = FastAPI()
+
+#create data base
+models.Base.metadata.create_all(bind=databases.engine)
+
+#load ML  model
+ML_MODEL = None
+MODEL_PATH = 'models/model_rf.joblib'
+
+#create session
+def get_db():
+    db = databases.SessionLocal()
+    try:
+        yield db
+
+    finally:
+        db.close()
 
 
-@app.get("/")
-def home():
-    return ("Welcome")
+@app.get("/patients")
+def get_patients(db: Session = Depends(get_db)):
+     return db.query(models.Patient).all()
+
+@app.get("/patients/{id_patient}",response_model=PatientCreate)
+def get_patients(id_patient:int, db: Session = Depends(get_db)):
+     return {"patient_id" : id_patient}
+
+@app.post("/patients", response_model=PatientCreate)
+def create_patient(data: PatientCreate, db: Session = Depends(get_db)):
+    new_patient= models.Patient(**data.model_dump())
+    db.add(new_patient)
+    db.commit()
+    db.refresh(new_patient)
+    return new_patient
+
+
