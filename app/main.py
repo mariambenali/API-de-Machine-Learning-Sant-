@@ -1,8 +1,7 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-import cardio_api.models as models
-from cardio_api import databases
-import joblib
+import app.models as models
+from app import databases
 from .schemas import  PatientCreate
 
 

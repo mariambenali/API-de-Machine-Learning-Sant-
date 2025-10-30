@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Float
-from cardio_api.databases import Base
+from app.databases import Base
 
 
 
