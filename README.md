@@ -10,7 +10,7 @@ Ce projet implémente une API RESTful basée sur FastAPI et SQLAlchemy pour :
 Pour exécuter ce projet, vous avez besoin de :
 
 - Python (version 3.8+)
-- Un environnement virtuel recommandé (`venv` ou `conda`)
+- Un environnement virtuel recommandé (`venv`)
 
 ## Installation et Lancement
 
