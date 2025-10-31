@@ -5,13 +5,4 @@ __pycache__/
 *.pyo
 *.pyd
 
-# ML Artifacts
-models/model_rf.joblib
-
-# Data
-data/*.csv
-
-# Database file (SQLite)
-*.db
-
 myvenv
