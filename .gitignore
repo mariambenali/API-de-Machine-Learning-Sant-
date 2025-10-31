@@ -13,3 +13,5 @@ data/*.csv
 
 # Database file (SQLite)
 *.db
+
+myvenv
