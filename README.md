@@ -93,8 +93,6 @@ La documentation interactive Swagger est disponible à : `http://127.0.0.1:8000/
 
 ## Structure du Projet
 
-## Structure du Projet
-
 | Fichier/Dossier | Description |
 |-----------------|-------------|
 | `app/` | Contient la logique principale de l'API. |
