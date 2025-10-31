@@ -93,18 +93,29 @@ La documentation interactive Swagger est disponible à : `http://127.0.0.1:8000/
 
 ## Structure du Projet
 
+## Structure du Projet
+
 | Fichier/Dossier | Description |
 |-----------------|-------------|
 | `app/` | Contient la logique principale de l'API. |
 | ├── `main.py` | Le point d'entrée FastAPI, définit les endpoints et intègre le modèle ML. |
-| ├── `databases.py` | Configuration de la connexion SQLAlchemy et de la DB SQLite. |
+| ├── `database.py` | Configuration de la connexion SQLAlchemy et de la DB SQLite. |
 | ├── `models.py` | Modèles de données pour SQLAlchemy (table `patients`). |
 | ├── `schemas.py` | Schémas de données Pydantic pour la validation des requêtes (`PatientCreate`) et des réponses (`Patient`). |
-| `models/` | Contient le modèle de Machine Learning . |
+| `data/` | Contient les données du projet. |
+| ├── `data.csv` | Fichier CSV contenant les données d'entraînement/test du modèle. |
+| `models/` | Contient le modèle de Machine Learning. |
 | ├── `model_rf.joblib` | Le modèle Random Forest pré-entraîné (Pipeline). |
-| `tests/` | Contient les tests unitaires pour l'API. |
+| `notebooks/` | Contient les notebooks Jupyter pour l'exploration et l'entraînement. |
+| ├── `scripts/` | Scripts Python pour le traitement des données et l'entraînement. |
+| │   ├── `train_model.py` | Script d'entraînement du modèle Random Forest. |
+| │   ├── `eda_cardio_risk.ipynb` | Notebook d'analyse exploratoire des données (EDA). |
+| `Tests/` | Contient les tests unitaires pour l'API. |
 | ├── `test_prediction.py` | Tests pour valider l'endpoint `/predict_risk` et le statut `200`. |
-| `README.md` | Ce fichier. |
+| `.gitignore` | Fichiers et dossiers à ignorer par Git. |
+| `cardio.db` | Base de données SQLite pour stocker les informations des patients. |
+| `README.md` | Documentation du projet. |
+| `requirements.txt` | Liste toutes les bibliothèques Python nécessaires au projet. |
 
 ## Tests Unitaires
 
