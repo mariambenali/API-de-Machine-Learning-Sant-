@@ -18,7 +18,7 @@ Suivez ces étapes pour configurer et lancer l'API.
 
 ### 1. Cloner le Dépôt (si applicable)
 ```bash
-git clone <URL_DE_VOTRE_DEPOT>
+git clone https://github.com/mariambenali/API-de-Machine-Learning-Sant-.git
 cd API-de-Machine-Learning-Sant-
 ```
 
