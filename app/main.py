@@ -66,6 +66,8 @@ def predict_risk(data: PatientCreate):
     #  Prédiction via le Pipeline
     prediction = ML_MODEL.predict(patient_df)
     
+    # Prédiction de probabilité 
+    probability = ML_MODEL.predict_proba(patient_df)[0][1]
 
     #  Formatage de la réponse
     result_code = int(prediction[0])
@@ -74,7 +76,9 @@ def predict_risk(data: PatientCreate):
     return {
         "prediction_code": result_code,
         "prediction_status": prediction_status,
-        "message": f"Le modèle prédit un risque cardiaque : {prediction_status}"
+        "message": f"Le modèle prédit un risque cardiaque : {prediction_status}",
+        "message": f"Probabilité pour la classe 1 : {probability}"
+        
     }
 
 
