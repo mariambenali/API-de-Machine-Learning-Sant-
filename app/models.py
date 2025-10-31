@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Float
-from app.databases import Base
+from . database import Base
 
 
 
@@ -9,8 +9,8 @@ class Patient(Base):
     id= Column(Integer, primary_key=True ,index=True)
     age= Column(Integer)
     gender = Column(Integer)
-    pressure_hight = Column(Integer)
-    pressure_low= Column(Integer)
+    pressurehight = Column(Integer)
+    pressurelow= Column(Integer)
     glucose = Column(Float)
     kcm= Column(Float)
     troponin= Column(Float)

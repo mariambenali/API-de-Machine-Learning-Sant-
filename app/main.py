@@ -1,14 +1,13 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-import app.models as models
-from app import databases
-from .schemas import  PatientCreate
-
+from . import models
+from . import database
+from .schemas import PatientCreate
 
 app = FastAPI()
 
 #create data base
-models.Base.metadata.create_all(bind=databases.engine)
+models.Base.metadata.create_all(bind=database.engine)
 
 #load ML  model
 ML_MODEL = None
@@ -16,13 +15,11 @@ MODEL_PATH = 'models/model_rf.joblib'
 
 #create session
 def get_db():
-    db = databases.SessionLocal()
+    db = database.SessionLocal()
     try:
         yield db
-
     finally:
         db.close()
-
 
 @app.get("/patients")
 def get_patients(db: Session = Depends(get_db)):
