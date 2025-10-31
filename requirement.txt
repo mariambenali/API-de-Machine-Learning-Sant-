@@ -1,0 +1,10 @@
+pandas
+matplotlib
+seaborn
+scikit-learn 
+joblib
+fastAPI
+sqlalchemy 
+pydantic
+pytest
+httpx
